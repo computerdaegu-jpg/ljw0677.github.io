@@ -3,74 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내 포트폴리오</title>
+    <title>테마파크 웹사이트 뼈대</title>
     <style>
-        /* 웹사이트의 디자인(CSS)을 담당하는 부분입니다 */
+        /* 폰트 설정: 귀여운 느낌의 쿠키런체와 깔끔한 프리텐다드체 사용 */
+        @font-face {
+            font-family: 'CookieRun-Black';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Black.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
         body {
-            font-family: 'Pretendard', -apple-system, sans-serif;
+            font-family: 'Pretendard', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* --- 상단 헤더 영역 --- */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 20px;
+            font-size: 0.8rem;
+            color: #666;
+            background-color: #fafafa;
+        }
+
+        .top-bar span {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* 중앙 로고 이미지 위치 */
+        .logo img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .btn-orange {
+            background-color: #ff7f00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            border: 1px solid #e0e0e0;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* --- 메인 배너 영역 (히어로 섹션) --- */
+        .hero {
+            position: relative;
+            background-color: #dcf4f9; /* 시원한 하늘색 배경 */
+            height: 500px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
-        }
-        
-        .container {
             text-align: center;
-            padding: 3rem 2rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            max-width: 600px;
-            width: 85%;
+            overflow: hidden;
         }
 
-        h1 { 
-            margin-top: 0;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem; 
+        /* 배너 배경 이미지 위치 (전체를 덮는 이미지) */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.8; /* 텍스트가 잘 보이도록 투명도 조절 */
         }
 
-        p { 
-            color: #86868b; 
-            line-height: 1.6;
-            margin-bottom: 2.5rem; 
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .links a {
-            text-decoration: none;
+        .badge {
+            background-color: #ff4785;
             color: white;
-            background-color: #000000;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 5px 15px;
+            border-radius: 20px;
             font-weight: bold;
-            transition: background-color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
-        .links a:hover { 
-            background-color: #333333; 
+        .sub-title {
+            font-weight: 800;
+            color: #0b3b60;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .main-title {
+            font-family: 'CookieRun-Black', sans-serif;
+            font-size: 5rem;
+            margin: 0;
+            color: #ff6699;
+            text-shadow: 4px 4px 0px #ffffff, -2px -2px 0px #ffffff, 2px -2px 0px #ffffff, -2px 2px 0px #ffffff;
+            letter-spacing: -2px;
+        }
+
+        .main-title span {
+            color: #2b70c9; /* 파란색 텍스트 포인트 */
+        }
+
+        .btn-blue {
+            margin-top: 25px;
+            display: inline-block;
+            background: linear-gradient(180deg, #4aa8ff, #2b70c9);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(43, 112, 201, 0.4);
+        }
+
+        /* --- 하단 고정 네비게이션바 --- */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            border-top: 1px solid #eee;
+            padding: 15px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 하단 아이콘 이미지 위치 */
+        .bottom-nav-item img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>안녕하세요, [이름]입니다.</h1>
-        <p>브랜드 아이덴티티와 커머셜 비주얼을 설계하는<br>브랜드 디자이너 & 마케터 포트폴리오입니다.</p>
-        
-        <div class="links">
-            <a href="#work">작업물 보기</a>
-            <a href="#contact">연락하기</a>
+
+    <header>
+        <div class="top-bar">
+            <span>로그인</span>
+            <span>회원가입</span>
+            <span>언어 선택 ▼</span>
         </div>
-    </div>
+        <div class="main-nav">
+            <div class="nav-left">
+                <div class="nav-item">즐길거리</div>
+                <div class="nav-item">요금/할인</div>
+                <div class="nav-item">시설정보</div>
+                <div class="nav-item">이용안내</div>
+            </div>
+            
+            <div class="logo">
+                <img src="image1.jpg" alt="메인 로고">
+            </div>
+
+            <div class="nav-right">
+                <a href="#" class="btn-orange">온라인스토어</a>
+                <a href="#" class="btn-outline">예매하기</a>
+                <a href="#" class="btn-outline">단체예약</a>
+                <a href="#" class="btn-outline">연간회원</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero">
+        <img src="image2.jpg" alt="여름휴가 배경" class="hero-bg">
+        
+        <div class="hero-content">
+            <div class="badge">2026 여름휴가</div>
+            <div class="sub-title">낮부터 밤까지! 하루종일 시원~한 원더랜드 워터워즈로 출발</div>
+            <h1 class="main-title"><span>목적지는</span> 이월드</h1>
+            <a href="#" class="btn-blue">썸머페스타 특가 예매가기</a>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="bottom-nav-item">
+            <img src="image3.jpg" alt="홈 아이콘">
+            <span>홈</span>
+        </div>
+        <div class="bottom-nav-item">
+            <img src="image3.jpg" alt="타워 아이콘">
+            <span>83타워</span>
+        </div>
+        <div class="bottom-nav-item">
+            <img src="image3.jpg" alt="예매 아이콘">
+            <span>예매</span>
+        </div>
+        <div class="bottom-nav-item">
+            <img src="image3.jpg" alt="굿즈 아이콘">
+            <span>온라인굿즈</span>
+        </div>
+        <div class="bottom-nav-item">
+            <img src="image3.jpg" alt="마이페이지 아이콘">
+            <span>MY</span>
+        </div>
+    </nav>
+
 </body>
 </html>
