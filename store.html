@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온라인 스토어</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* 메인과 다르게 약간 차분한 배경색 */
+            color: #333;
+        }
+
+        /* 심플한 상단 헤더 */
+        header {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* 스토어 메인 영역 */
+        .store-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .store-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #111;
+        }
+
+        /* 상품 진열을 위한 그리드 (바둑판) 레이아웃 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* 개별 상품 카드 디자인 */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px); /* 마우스 올렸을 때 살짝 떠오르는 효과 */
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+
+        .product-price {
+            color: #ff7f00;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+        }
+
+        .buy-btn {
+            display: block;
+            text-align: center;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .buy-btn:hover {
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn">← 메인으로 돌아가기</a>
+        <div style="font-weight: bold; font-size: 1.2rem;">온라인 스토어</div>
+        <div style="width: 100px;"></div> </header>
+
+    <div class="store-container">
+        <h2 class="store-title">E-WORLD 썸머 굿즈 & 티켓</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">상품 이미지 1</div>
+                <div class="product-info">
+                    <h3 class="product-name">종일 자유이용권 (대인)</h3>
+                    <p class="product-price">39,900원</p>
+                    <a href="#" class="buy-btn">장바구니 담기</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">상품 이미지 2</div>
+                <div class="product-info">
+                    <h3 class="product-name">종일 자유이용권 (소인)</h3>
+                    <p class="product-price">29,900원</p>
+                    <a href="#" class="buy-btn">장바구니 담기</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">상품 이미지 3</div>
+                <div class="product-info">
+                    <h3 class="product-name">한정판 썸머 튜브</h3>
+                    <p class="product-price">15,000원</p>
+                    <a href="#" class="buy-btn">장바구니 담기</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">상품 이미지 4</div>
+                <div class="product-info">
+                    <h3 class="product-name">이월드 캐릭터 머리띠</h3>
+                    <p class="product-price">8,500원</p>
+                    <a href="#" class="buy-btn">장바구니 담기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
