@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>테마파크 웹사이트 뼈대</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
     <style>
         /* 폰트 설정: 귀여운 느낌의 쿠키런체와 깔끔한 프리텐다드체 사용 */
         @font-face {
@@ -191,6 +195,15 @@
             height: 30px;
             object-fit: contain;
         }
+
+        /* 로드뷰 영역 스타일 */
+        .vr-section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -233,6 +246,9 @@
         </div>
     </main>
 
+    <div class="vr-section-title">✨ 이월드 360도 둘러보기</div>
+    <div id="panorama" style="width: 100%; height: 500px; background-color: #f5f5f5;"></div>
+
     <nav class="bottom-nav">
         <div class="bottom-nav-item">
             <img src="image3.jpg" alt="홈 아이콘">
@@ -255,6 +271,16 @@
             <span>MY</span>
         </div>
     </nav>
+
+    <script>
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "vr.jpg",
+            "autoLoad": true,
+            "compass": false,
+            "showControls": true
+        });
+    </script>
 
 </body>
 </html>
