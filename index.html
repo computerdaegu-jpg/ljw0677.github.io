@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <style>
-        /* 폰트 설정: 귀여운 느낌의 쿠키런체와 깔끔한 프리텐다드체 사용 */
+        /* 폰트 설정 */
         @font-face {
             font-family: 'CookieRun-Black';
             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Black.woff') format('woff');
@@ -43,10 +43,7 @@
             background-color: #fafafa;
         }
 
-        .top-bar span {
-            margin-left: 15px;
-            cursor: pointer;
-        }
+        .top-bar span { margin-left: 15px; cursor: pointer; }
 
         .main-nav {
             display: flex;
@@ -64,162 +61,164 @@
             font-weight: bold;
         }
 
-        .nav-item {
-            cursor: pointer;
-            padding: 10px;
-        }
+        .nav-item { cursor: pointer; padding: 10px; }
 
-        /* 중앙 로고 이미지 위치 */
-        .logo img {
-            height: 60px;
-            object-fit: contain;
-        }
+        .logo img { height: 60px; object-fit: contain; }
 
         .btn-orange {
-            background-color: #ff7f00;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
+            background-color: #ff7f00; color: white;
+            padding: 8px 16px; border-radius: 4px;
+            font-weight: bold; text-decoration: none;
         }
 
         .btn-outline {
-            border: 1px solid #e0e0e0;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
+            border: 1px solid #e0e0e0; padding: 8px 16px;
+            border-radius: 4px; font-weight: bold;
+            text-decoration: none; color: #333;
         }
 
         /* --- 메인 배너 영역 (히어로 섹션) --- */
         .hero {
-            position: relative;
-            background-color: #dcf4f9; /* 시원한 하늘색 배경 */
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
+            position: relative; background-color: #dcf4f9;
+            height: 500px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
         }
 
-        /* 배너 배경 이미지 위치 (전체를 덮는 이미지) */
         .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.8; /* 텍스트가 잘 보이도록 투명도 조절 */
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; object-fit: cover;
+            z-index: 1; opacity: 0.8;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
+        .hero-content { position: relative; z-index: 2; }
 
         .badge {
-            background-color: #ff4785;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
+            background-color: #ff4785; color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-weight: bold; display: inline-block;
             margin-bottom: 10px;
         }
 
-        .sub-title {
-            font-weight: 800;
-            color: #0b3b60;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
+        .sub-title { font-weight: 800; color: #0b3b60; margin-bottom: 10px; font-size: 1.2rem; }
 
         .main-title {
             font-family: 'CookieRun-Black', sans-serif;
-            font-size: 5rem;
-            margin: 0;
-            color: #ff6699;
+            font-size: 5rem; margin: 0; color: #ff6699;
             text-shadow: 4px 4px 0px #ffffff, -2px -2px 0px #ffffff, 2px -2px 0px #ffffff, -2px 2px 0px #ffffff;
             letter-spacing: -2px;
         }
 
-        .main-title span {
-            color: #2b70c9; /* 파란색 텍스트 포인트 */
-        }
+        .main-title span { color: #2b70c9; }
 
         .btn-blue {
-            margin-top: 25px;
-            display: inline-block;
+            margin-top: 25px; display: inline-block;
             background: linear-gradient(180deg, #4aa8ff, #2b70c9);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(43, 112, 201, 0.4);
+            color: white; padding: 15px 40px; border-radius: 30px;
+            font-weight: bold; font-size: 1.2rem;
+            text-decoration: none; box-shadow: 0 4px 10px rgba(43, 112, 201, 0.4);
+        }
+
+        /* 로드뷰 영역 및 이벤트 영역 제목 스타일 */
+        .section-title {
+            text-align: center; margin: 40px 0 20px;
+            font-size: 1.5rem; font-weight: bold; color: #333;
+        }
+
+        /* --- 🎁 스페셜 이벤트 (image4) 배너 영역 --- */
+        .image-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 100%; border-radius: 12px; display: block;
+        }
+
+        /* 이미지 위에 올라갈 깜빡이는 버튼 */
+        .click-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff4785; color: white;
+            padding: 15px 30px; border-radius: 50px;
+            font-weight: bold; font-size: 1.2rem;
+            border: none; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 71, 133, 0.5);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* --- 🌙 페이드 인/아웃 되는 숨겨진 팝업(모달) 창 --- */
+        .fade-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* 주변을 어둡게 만들어줍니다 */
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; /* 화면 맨 앞으로 가져옵니다 */
+            cursor: pointer;
+            
+            /* 핵심: 처음에는 안 보이게 투명도 0으로 설정 */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease; /* 부드럽게 스르륵 바뀌는 속도 설정 */
+        }
+
+        /* 버튼을 누르면 이 'show' 클래스가 붙으면서 투명도가 1이 되어 화면에 나타납니다 */
+        .fade-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fade-overlay img {
+            max-width: 80%; max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            cursor: default;
+        }
+
+        .close-hint {
+            position: absolute; top: 30px;
+            color: white; font-size: 1.1rem;
+            font-weight: bold; text-align: center; width: 100%;
         }
 
         /* --- 하단 고정 네비게이션바 --- */
         .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: white;
-            border-top: 1px solid #eee;
-            padding: 15px 0;
-            max-width: 1400px;
-            margin: 0 auto;
+            display: flex; justify-content: space-around;
+            align-items: center; background-color: white;
+            border-top: 1px solid #eee; padding: 15px 0;
+            max-width: 1400px; margin: 0 auto;
         }
 
         .bottom-nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: #555;
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 8px; color: #555; font-size: 0.9rem;
+            font-weight: bold; cursor: pointer;
         }
 
-        /* 하단 아이콘 이미지 위치 */
-        .bottom-nav-item img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-        }
-
-        /* 로드뷰 영역 스타일 */
-        .vr-section-title {
-            text-align: center;
-            margin: 40px 0 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-        }
+        .bottom-nav-item img { width: 30px; height: 30px; object-fit: contain; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="top-bar">
-            <span>로그인</span>
-            <span>회원가입</span>
-            <span>언어 선택 ▼</span>
+            <span>로그인</span> <span>회원가입</span> <span>언어 선택 ▼</span>
         </div>
         <div class="main-nav">
             <div class="nav-left">
-                <div class="nav-item">즐길거리</div>
-                <div class="nav-item">요금/할인</div>
-                <div class="nav-item">시설정보</div>
-                <div class="nav-item">이용안내</div>
+                <div class="nav-item">즐길거리</div> <div class="nav-item">요금/할인</div>
+                <div class="nav-item">시설정보</div> <div class="nav-item">이용안내</div>
             </div>
             
             <div class="logo">
@@ -237,7 +236,6 @@
 
     <main class="hero">
         <img src="image2.jpg" alt="여름휴가 배경" class="hero-bg">
-        
         <div class="hero-content">
             <div class="badge">2026 여름휴가</div>
             <div class="sub-title">낮부터 밤까지! 하루종일 시원~한 원더랜드 워터워즈로 출발</div>
@@ -246,33 +244,30 @@
         </div>
     </main>
 
-    <div class="vr-section-title">✨ 이월드 360도 둘러보기</div>
+    <div class="section-title">🎁 스페셜 이벤트</div>
+    <div class="image-container">
+        <img src="image4.jpg" alt="이벤트 배경">
+        <button onclick="openFade()" class="click-btn">클릭! 👆</button>
+    </div>
+
+    <div class="section-title">✨ 이월드 360도 둘러보기</div>
     <div id="panorama" style="width: 100%; height: 500px; background-color: #f5f5f5;"></div>
 
     <nav class="bottom-nav">
-        <div class="bottom-nav-item">
-            <img src="image3.jpg" alt="홈 아이콘">
-            <span>홈</span>
-        </div>
-        <div class="bottom-nav-item">
-            <img src="image3.jpg" alt="타워 아이콘">
-            <span>83타워</span>
-        </div>
-        <div class="bottom-nav-item">
-            <img src="image3.jpg" alt="예매 아이콘">
-            <span>예매</span>
-        </div>
-        <div class="bottom-nav-item">
-            <img src="image3.jpg" alt="굿즈 아이콘">
-            <span>온라인굿즈</span>
-        </div>
-        <div class="bottom-nav-item">
-            <img src="image3.jpg" alt="마이페이지 아이콘">
-            <span>MY</span>
-        </div>
+        <div class="bottom-nav-item"> <img src="image3.jpg" alt="홈"> <span>홈</span> </div>
+        <div class="bottom-nav-item"> <img src="image3.jpg" alt="타워"> <span>83타워</span> </div>
+        <div class="bottom-nav-item"> <img src="image3.jpg" alt="예매"> <span>예매</span> </div>
+        <div class="bottom-nav-item"> <img src="image3.jpg" alt="굿즈"> <span>온라인굿즈</span> </div>
+        <div class="bottom-nav-item"> <img src="image3.jpg" alt="MY"> <span>MY</span> </div>
     </nav>
 
+    <div id="secretImage" class="fade-overlay" onclick="closeFade()">
+        <div class="close-hint">아무 곳이나 클릭하면 화면이 닫힙니다 ✕</div>
+        <img src="image5.jpg" alt="시크릿 이미지" onclick="event.stopPropagation();">
+    </div>
+
     <script>
+        // 파노라마 실행
         pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "vr.jpg",
@@ -280,6 +275,14 @@
             "compass": false,
             "showControls": true
         });
+
+        // 팝업(모달)을 스르륵 열고 닫는 스크립트
+        function openFade() {
+            document.getElementById('secretImage').classList.add('show');
+        }
+        function closeFade() {
+            document.getElementById('secretImage').classList.remove('show');
+        }
     </script>
 
 </body>
