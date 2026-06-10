@@ -111,55 +111,67 @@
             font-size: 1.5rem; font-weight: bold; color: #333;
         }
 
-        /* --- 🎁 스페셜 이벤트 배너 영역 --- */
+        /* --- 🎁 스페셜 이벤트 (제자리 스르륵 전환) --- */
         .image-container {
-            position: relative; max-width: 1000px;
-            margin: 0 auto 40px; padding: 0 20px; text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center;
         }
 
-        .image-container img { width: 100%; border-radius: 12px; display: block; }
+        /* 두 이미지를 정확히 겹쳐두기 위한 틀 */
+        .img-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
 
+        .img-wrapper img {
+            width: 100%;
+            display: block;
+            transition: opacity 0.6s ease-in-out; /* 이미지가 스르륵 바뀌는 속도 (0.6초) */
+        }
+
+        /* 기본적으로 앞에 보일 image4 */
+        .img-front {
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 2;
+            opacity: 1;
+        }
+
+        /* 뒤에 숨어있을 image5 */
+        .img-back {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 버튼을 눌러 active 상태가 되면 앞에 있던 image4가 투명해집니다 */
+        .img-wrapper.active .img-front {
+            opacity: 0;
+        }
+
+        /* 좌측 상단으로 이동한 깜빡이는 버튼 */
         .click-btn {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 20px;   /* 위쪽 여백 */
+            left: 20px;  /* 왼쪽 여백 */
+            z-index: 10; /* 가장 위에 보이도록 설정 */
             background-color: #ff4785; color: white;
-            padding: 15px 30px; border-radius: 50px;
-            font-weight: bold; font-size: 1.2rem;
+            padding: 10px 20px; border-radius: 50px;
+            font-weight: bold; font-size: 1.1rem;
             border: none; cursor: pointer;
             box-shadow: 0 4px 15px rgba(255, 71, 133, 0.5);
             animation: pulse 1.5s infinite;
         }
 
+        /* 위치가 변하지 않고 크기만 깜빡이도록 수정 */
         @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-        }
-
-        /* --- 🌙 페이드 인/아웃 숨겨진 팝업 --- */
-        .fade-overlay {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 9999; cursor: pointer;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-        }
-
-        .fade-overlay.show { opacity: 1; visibility: visible; }
-
-        .fade-overlay img {
-            max-width: 80%; max-height: 80vh;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            cursor: default;
-        }
-
-        .close-hint {
-            position: absolute; top: 30px;
-            color: white; font-size: 1.1rem;
-            font-weight: bold; text-align: center; width: 100%;
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* --- 하단 네비게이션바 --- */
@@ -216,8 +228,14 @@
 
     <div class="section-title">🎁 스페셜 이벤트</div>
     <div class="image-container">
-        <img src="image4.jpeg" alt="이벤트 배경">
-        <button onclick="openFade()" class="click-btn">클릭! 👆</button>
+        <div class="img-wrapper" id="eventImageWrapper">
+            
+            <img src="image4.jpeg" alt="이벤트 배경 1" class="img-front">
+            <img src="image5.jpeg" alt="이벤트 배경 2" class="img-back">
+
+            <button onclick="toggleImage()" class="click-btn">클릭! 👆</button>
+            
+        </div>
     </div>
 
     <div class="section-title">✨ 이월드 360도 둘러보기</div>
@@ -231,12 +249,8 @@
         <div class="bottom-nav-item"> <img src="image3.jpg" alt="MY"> <span>MY</span> </div>
     </nav>
 
-    <div id="secretImage" class="fade-overlay" onclick="closeFade()">
-        <div class="close-hint">아무 곳이나 클릭하면 화면이 닫힙니다 ✕</div>
-        <img src="image5.jpeg" alt="시크릿 이미지" onclick="event.stopPropagation();">
-    </div>
-
     <script>
+        // 파노라마 로드뷰 스크립트
         pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "vr.jpg",
@@ -245,8 +259,10 @@
             "showControls": true
         });
 
-        function openFade() { document.getElementById('secretImage').classList.add('show'); }
-        function closeFade() { document.getElementById('secretImage').classList.remove('show'); }
+        // 이미지를 스르륵 바꾸어주는 스크립트 (버튼을 누를 때마다 켜고 끄기를 반복)
+        function toggleImage() {
+            document.getElementById('eventImageWrapper').classList.toggle('active');
+        }
     </script>
 
 </body>
